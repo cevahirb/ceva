@@ -16,6 +16,7 @@ terraform {
 provider "aws" {
   profile = var.profile
   region  = var.region
+  shared_credentials_file = "/home/ubuntu/credential"
 }
 
 module "ec2" {
