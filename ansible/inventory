@@ -1,0 +1,4 @@
+[Master]
+172.31.17.221 ansible_user=ubuntu ansible_ssh_private_key_file=./kube.pem
+[Worker]
+172.31.17.222 ansible_user=ubuntu ansible_ssh_private_key_file=./kube.pem
