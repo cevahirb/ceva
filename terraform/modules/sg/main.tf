@@ -19,6 +19,13 @@ resource "aws_security_group" "sg-to-sg" {
     protocol    = "-1"
     self        = true
   }
+  ingress {
+    description = "app port"
+    from_port   = 32700
+    to_port     = 32700
+    protocol    = "tcp"
+    cidr_blocks      = ["0.0.0.0/0"]
+  }
 }
 
 output "sg_id" {
