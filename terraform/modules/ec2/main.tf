@@ -52,6 +52,6 @@ resource "aws_instance" "worker" {
 
 resource "aws_eip_association" "eip_assoc" {
   instance_id   = aws_instance.worker.id
-  allocation_id = "0c52c94f73b318302"
+  allocation_id = "eipalloc-0c52c94f73b318302"
 }
 
