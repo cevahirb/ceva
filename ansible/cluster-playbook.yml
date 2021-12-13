@@ -127,7 +127,7 @@
     register: copy_kubeconfig
 
   - name: Copy kubeconfig to local file
-    local_action: copy content="{{ copy_kubeconfig.stdout_lines[0] }}" dest="/var/lib/jenkins/.kube/config"
+    local_action: copy content="{{ copy_kubeconfig.stdout }}" dest="/var/lib/jenkins/.kube/config"
     become: false
 
   - name: Get kubectl version
