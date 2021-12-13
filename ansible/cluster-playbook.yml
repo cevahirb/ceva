@@ -122,9 +122,18 @@
      - cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config
      - chown ubuntu:ubuntu /home/ubuntu/.kube/config
 
+  - name: Copy kubeconfig
+    command: cat /etc/kubernetes/admin.conf 
+    register: copy_kubeconfig
+
+  - name: Copy kubeconfig to local file
+    local_action: copy content="{{ copy_kubeconfig.stdout_lines[0] }}" dest="/var/lib/jenkins/.kube/config"
+    become: false
+
   - name: Get kubectl version
     shell: kubectl version | base64 | tr -d '\n'
     register: kubectl_version
+
 
   - name: Install calico pod network
     become: false
@@ -140,6 +149,8 @@
   handlers:
     - name: docker status
       service: name=docker state=started
+
+
 
 - hosts: Worker
   become: true

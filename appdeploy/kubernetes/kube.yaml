@@ -135,6 +135,5 @@ spec:
   selector:
     app: app
   type: NodePort
-status:
-  loadBalancer: {}
+
 
