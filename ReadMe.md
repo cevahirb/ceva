@@ -13,4 +13,4 @@ Ansible
 I installed kubernetes for master and worker with Ansible. Then I made the necessary deployment and service(NodePort) setups for the python application that I sent to dockerhub.
 
 Build Python Application
-You can see the necessary installations for the Python application in the Dockerfile.
+You can see the necessary installations for the Python application in the Dockerfile. (BuildApp/docker)
