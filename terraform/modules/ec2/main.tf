@@ -23,6 +23,7 @@ resource "aws_instance" "master" {
   tags = var.default_tags_master
 
 }
+### Worker Installation
 
 resource "aws_network_interface" "workerip" {
   subnet_id   = "subnet-5eff763b"
@@ -47,5 +48,10 @@ resource "aws_instance" "worker" {
   EOF
   tags = var.default_tags_worker
 
+}
+
+resource "aws_eip_association" "eip_assoc" {
+  instance_id   = aws_instance.worker.id
+  allocation_id = "0c52c94f73b318302"
 }
 
